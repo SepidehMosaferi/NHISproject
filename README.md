@@ -1,5 +1,6 @@
 R code for the NHIS project ("Data Collection and Analytics Specialization")
-open the R code which contains some commands with the following explanations.
+
+Open the R code which contains some commands with the following explanations.
 
 
 # SOME DESCRIPTIONS
