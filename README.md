@@ -42,8 +42,7 @@ are as follows:
 
 With fpc
 ```
-svydesign(id=~BG, strata=~STRATUM, fpc=~fpc1, weight=~wt, data=SAMPLEDATA,
-  nest=TRUE)
+svydesign(id=~BG, strata=~STRATUM, fpc=~fpc1, weight=~wt, data=SAMPLEDATA, nest=TRUE)
 ```
 Without fpc
 ```
