@@ -118,6 +118,7 @@ Poststratification. We consider Age group as the poststrata. The results based o
 > pop.types <- data.frame(AGEgrp=c("(15,25]","(25,35]",
                                    "(35,45]", "(45,55]", "(55,65]",
                                    "(65,75]", "(75,85]"), Freq=FREQ)
+                                   
 > onestage.wfpc.p <- postStratify(onestage.wfpc,~AGEgrp,pop.types)
 > rbind(summary(weights(onestage.wfpc)), summary(weights(onestage.wfpc.p)))
 
