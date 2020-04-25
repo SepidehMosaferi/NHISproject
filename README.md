@@ -104,6 +104,7 @@ Another check is to fit a second model that includes only "p.class" and to test 
 equivalent? From the following Box, we can realize the models are not equivalent. Therefore, it is
 important to keep the interaction term as it was also expected.
 > chk2 <- glm(AGE_P~p.class,data=SAMPLEDATA)
+
 > anova(chk1,chk2,test="F")
 
 
@@ -114,22 +115,30 @@ calibration are: Poststratification and Raking. Here based on the Course materia
 Poststratification. We consider Age group as the poststrata. The results based on our work are as follows:
 
 > FinalNHIS$AGEgrp <- cut(FinalNHIS$AGE_P,seq(15,85,10))
+
 > FREQ <- as.vector(table(FinalNHIS$AGEgrp))
+
 > pop.types <- data.frame(AGEgrp=c("(15,25]","(25,35]",
                                    "(35,45]", "(45,55]", "(55,65]",
                                    "(65,75]", "(75,85]"), Freq=FREQ)
                                    
 > onestage.wfpc.p <- postStratify(onestage.wfpc,~AGEgrp,pop.types)
+
 > rbind(summary(weights(onestage.wfpc)), summary(weights(onestage.wfpc.p)))
 
 Then we need to check that weights are calibrated for x’s.
 
 If we consider the weight response variable WTIA_SA , we can have the following results:
 > svymean(~WTIA_SA, onestage.wfpc)
+
 > svymean(~WTIA_SA, onestage.wfpc.p)
+
 > svytotal(~WTIA_SA, onestage.wfpc)
+
 > svytotal(~WTIA_SA, onestage.wfpc.p)
+
 > c(cv(svymean(~WTIA_SA, onestage.wfpc)), cv(svymean(~WTIA_SA, onestage.wfpc.p)))
+
 > c(cv(svytotal(~WTIA_SA, onestage.wfpc)), cv(svytotal(~WTIA_SA, onestage.wfpc.p)))
 
 
