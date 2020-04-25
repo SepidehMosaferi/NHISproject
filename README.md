@@ -51,9 +51,10 @@ svydesign(id=~BG, strata=~STRATUM, weight=~wt, data=SAMPLEDATA, nest=TRUE)
 2. Twostage: when we consider both stages of sampling
 
 With fpc
-> svydesign(id=~BG+FPX,strata=~STRATUM,fpc=~fpc1+fpc2,weight=~wt,
+```
+svydesign(id=~BG+FPX,strata=~STRATUM,fpc=~fpc1+fpc2,weight=~wt,
   data=SAMPLEDATA,nest=TRUE)
-
+```
 Without fpc
 ```
 svydesign(id=~BG+FPX,strata=~STRATUM,fpc=~fpc1+fpc2,weight=~wt,
