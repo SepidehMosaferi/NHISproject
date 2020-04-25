@@ -2,8 +2,8 @@ R code for the NHIS project ("Data Collection and Analytics Specialization")
 open the R code which contains some commands with the following explanations.
 
 
-SOME DESCRIPTIONS
-==============================================
+# SOME DESCRIPTIONS
+
 
 Explanation of Produced Data set:
 1. We first order the dataset based on the hierarchical elements of "STRAT_P, PSU_P, HHX, FMX, FPX" in
@@ -22,17 +22,14 @@ The name of block group variable is BG. We totally have 105 block groups.
 The range of population per block group is from 267 to 358. 
 
 
-STEPS
-==============================================
+## STEPS
 
-Part I) SAMPLE SELECTION & DESIGN
-==============================================
+#### Part I) SAMPLE SELECTION & DESIGN
 
 We consider stratified 2-stage sample design, where strata called "STRATUM", 1st stage (PSU) is block-
 group called "BG", and 2nd stage (SSU) is person called "FPX" which we have given them unique "ID".
 
-Part II) SURVEY DESIGN DEFINITION & POINT ESTIMATIONs
-==============================================================
+#### Part II) SURVEY DESIGN DEFINITION & POINT ESTIMATIONs
 
 Here we first need to assign a suitable svydesign function to the selected data set in R. In multistage
 design, we have a situation where we can only consider the first stage of sample selection and ignore the
@@ -61,8 +58,7 @@ Without fpc
   
 Then, do the Design Effect Comparison and Point Estimations.  
 
-Part III) WEIGHTING & NONRESPONSE ADJUSTMENT
-==============================================================
+#### Part III) WEIGHTING & NONRESPONSE ADJUSTMENT
 
 Base Weight:
 
@@ -157,8 +153,7 @@ in the sub-sample. The original AGE variable does not have NA values. The condit
 for the AGE with NA values is: if AGE≥70, then we have non-response for the AGE.
 
 
-Part IV) EXTRA DATA ANALYSIS
-==============================================================
+#### Part IV) EXTRA DATA ANALYSIS
 
 After finishing the former parts, we consider the sample extracted from Part I
 and a design from Part II. Then we consider an interested
