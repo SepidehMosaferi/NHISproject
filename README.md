@@ -3,7 +3,7 @@ open the R code which contains some commands with the following explanations.
 
 
 == SOME DESCRIPTIONS
-
+==============================================
 
 Explanation of Produced Data set:
 1. We first order the dataset based on the hierarchical elements of "STRAT_P, PSU_P, HHX, FMX, FPX" in
@@ -21,14 +21,12 @@ The range of population per block group is from 267 to 358.
 
 STEPS:
 
-==============================================
 ==  Part I) SAMPLE SELECTION & DESIGN
 ==============================================
 
 We consider stratified 2-stage sample design, where strata called "STRATUM", 1st stage (PSU) is block-
 group called "BG", and 2nd stage (SSU) is person called "FPX" which we have given them unique "ID".
 
-==============================================================
 ==  Part II) SURVEY DESIGN DEFINITION & POINT ESTIMATIONs
 ==============================================================
 
@@ -55,7 +53,6 @@ are as follows:
   
 Then, do the Design Effect Comparison and Point Estimations.  
 
-==============================================================
 ==   Part III) WEIGHTING & NONRESPONSE ADJUSTMENT
 ==============================================================
 
@@ -98,7 +95,7 @@ important to keep the interaction term as it was also expected.
 > chk2 <- glm(AGE_P~p.class,data=SAMPLEDATA)
 > anova(chk1,chk2,test="F")
 
-==============================================
+
 Calibration to Population Control Total:
 
 The idea behind of calibration is using auxiliary information to reduce the variance. Two common ways of
@@ -123,7 +120,7 @@ If we consider the weight response variable WTIA_SA , we can have the following 
 > c(cv(svymean(~WTIA_SA, onestage.wfpc)), cv(svymean(~WTIA_SA, onestage.wfpc.p)))
 > c(cv(svytotal(~WTIA_SA, onestage.wfpc)), cv(svytotal(~WTIA_SA, onestage.wfpc.p)))
 
-==============================================
+
 Impuation Practice:
 Most of the time we encounter item nonresponse that a person has not answered to the one or more
 than one question in the survey, which is called item non-response. To conduct this part of project,
@@ -138,7 +135,7 @@ The variable AGE has been created by ourselves in order to have a continuous var
 in the sub-sample. The original AGE variable does not have NA values. The condition that we considered
 for the AGE with NA values is: if AGE≥70, then we have non-response for the AGE.
 
-==============================================================
+
 ==   Part IV) EXTRA DATA ANALYSIS
 ==============================================================
 
