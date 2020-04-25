@@ -52,13 +52,11 @@ svydesign(id=~BG, strata=~STRATUM, weight=~wt, data=SAMPLEDATA, nest=TRUE)
 
 With fpc
 ```
-svydesign(id=~BG+FPX,strata=~STRATUM,fpc=~fpc1+fpc2,weight=~wt,
-  data=SAMPLEDATA,nest=TRUE)
+svydesign(id=~BG+FPX,strata=~STRATUM,fpc=~fpc1+fpc2,weight=~wt,data=SAMPLEDATA,nest=TRUE)
 ```
 Without fpc
 ```
-svydesign(id=~BG+FPX,strata=~STRATUM,fpc=~fpc1+fpc2,weight=~wt,
-  data=SAMPLEDATA,nest=TRUE)
+svydesign(id=~BG+FPX,strata=~STRATUM,fpc=~fpc1+fpc2,weight=~wt,data=SAMPLEDATA,nest=TRUE)
 ```  
 Then, do the Design Effect Comparison and Point Estimations.  
 
