@@ -3,7 +3,7 @@ open the R code which contains some commands with the following explanations.
 
 
 SOME DESCRIPTIONS
-==============================================
+==
 
 Explanation of Produced Data set:
 1. We first order the dataset based on the hierarchical elements of "STRAT_P, PSU_P, HHX, FMX, FPX" in
