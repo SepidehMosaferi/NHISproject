@@ -41,17 +41,21 @@ method. For this project, we assign two survey designs while keeping the strata.
 are as follows:
 
 1. Onestage: when we ignore the second stage of sampling (Ultimate cluster)
- With fpc
+
+With fpc
 > svydesign(id=~BG, strata=~STRATUM, fpc=~fpc1, weight=~wt, data=SAMPLEDATA,
   nest=TRUE)
- Without fpc
+
+Without fpc
 > svydesign(id=~BG, strata=~STRATUM, weight=~wt, data=SAMPLEDATA, nest=TRUE)
 
 2. Twostage: when we consider both stages of sampling
- With fpc
+
+With fpc
 > svydesign(id=~BG+FPX,strata=~STRATUM,fpc=~fpc1+fpc2,weight=~wt,
   data=SAMPLEDATA,nest=TRUE)
- Without fpc
+
+Without fpc
 > svydesign(id=~BG+FPX,strata=~STRATUM,fpc=~fpc1+fpc2,weight=~wt,
   data=SAMPLEDATA,nest=TRUE)
   
@@ -60,12 +64,14 @@ Then, do the Design Effect Comparison and Point Estimations.
 Part III) WEIGHTING & NONRESPONSE ADJUSTMENT
 ==============================================================
 
- Base Weight:
+Base Weight:
+
 Base weight is the inverse of selection probability of individual "i". We should keep in mind that the
 summation of base weights is equal to the total number of elements in the population.
 In our R code the base weight is given by "wt" (See the R code).
 
- Quality Control (QC) Checks of Weighting:
+Quality Control (QC) Checks of Weighting:
+
 For this part, we need to check the following steps.
 
 1. In the final sample that they extracted from the population, PSUs (BGs) should be nested in the Stratum.
@@ -79,11 +85,12 @@ the total number of selected BGs, which is 30 based on our work.
 6. The summation of second stage selection probabilities for all of individuals within each selected BG
 should be equal to the sample size of individuals from each selected BG.
 
- Propensity Score Adjustment:
+Propensity Score Adjustment:
+
 See the following command from R code
 > pGumbel(1, mu = 0, sigma = 1)= 0.6922006
 
- Illustration of Some Quality Checking (QC):
+Illustration of Some Quality Checking (QC):
 
 Check1
 We illustrate a check on covariate balance by fitting an ANOVA model to AGE, which is continuous. We do
@@ -152,8 +159,10 @@ Then we can find the related covariates such as age, race, sex, etc. using svygl
 residual analysis, model checking and the odds ratio of the characteristics of having a special health
 problem v.s. not having a special health problem requiring special equipment: p/(1 − p).
 We also recommend 2 different situations:
- Conduct data analysis assuming all of units responded
- Conduct data analysis assuming that we have non-respondents following the Part III.
+
+Conduct data analysis assuming all of units responded
+
+Conduct data analysis assuming that we have non-respondents following the Part III.
 
 Then, we can investigate the effect of missingness on the estimators when we do not consider the non-
 response adjustment and when we consider non-response adjustment.
