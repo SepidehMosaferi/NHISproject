@@ -19,7 +19,9 @@ group size creation could be replicated.
 The name of block group variable is BG. We totally have 105 block groups.
 The range of population per block group is from 267 to 358. 
 
-STEPS:
+
+STEPS
+==============================================
 
 Part I) SAMPLE SELECTION & DESIGN
 ==============================================
